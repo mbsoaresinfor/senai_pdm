@@ -42,4 +42,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    public boolean isNumero(String numero){
+        try{
+            Float.parseFloat(numero);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
 }

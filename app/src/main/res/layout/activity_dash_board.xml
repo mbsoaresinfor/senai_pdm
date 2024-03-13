@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".DashBoardActivity">
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="abreCadastroPet"
+            android:text="Cadastro Pet" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
