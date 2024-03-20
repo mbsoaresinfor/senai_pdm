@@ -4,7 +4,8 @@ import android.content.Intent;
 
 public class Pet {
 
-    public Pet(){
+    public String nome;
+    public Integer idade;
 
-    }
+
 }

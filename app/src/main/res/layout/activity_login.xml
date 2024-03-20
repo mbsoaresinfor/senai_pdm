@@ -17,7 +17,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             android:textSize="24sp" />
 
         <EditText
@@ -31,7 +31,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Senha"
+            android:text="@string/senha"
             android:textSize="24sp" />
 
         <EditText
@@ -46,6 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="logar"
-            android:text="Logar" />
+            android:text="@string/logar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="abreCadastroPet"
-            android:text="Cadastro Pet" />
+            android:text="@string/cadastrar_pet" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PetApp</string>
+    <string name="nome">Name</string>
+    <string name="idade">Idade</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="cadastrar_pet">Cadastrar Pet</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="logar">Logar</string>
 </resources>
