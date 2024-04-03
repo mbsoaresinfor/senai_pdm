@@ -6,18 +6,62 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 public class DashBoardActivity extends AppCompatActivity {
+
+    List<Pet> listaPet = new ArrayList<Pet>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
-        setTitle("DashBoard");
+        setTitle(R.string.dashboard);
     }
 
     public void abreCadastroPet(View view) {
         // abrindo a tela de cadastro de pet.
         Intent intent = new Intent(this,CadastroPetActivity.class);
+
+        // cria o bundle para passar as variaveis para CadastroPetActivity
+        Bundle bundle = new Bundle();
+        bundle.putString("nome","marcelo");
+        bundle.putInt("idade",41);
+        bundle.putSerializable("lista", (Serializable) listaPet);
+
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+
+    }
+
+
+    public void abrirRemover(View view) {
+
+        // abrindo a tela de removeção de pet.
+        Intent intent = new Intent(this,RemoverPetActivity.class);
+
+        // cria o bundle para passar as variaveis para RemoverPetActivity
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("lista", (Serializable) listaPet);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }
+
+    public void listagemPet(View view) {
+
+        // abrindo a tela de Listagem de pet
+        Intent intent = new Intent(this,ListagemPetActivity.class);
+
+        // cria o bundle para passar as variaveis para ListagemPetActivity
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("lista", (Serializable) listaPet);
+        intent.putExtras(bundle);
+
         startActivity(intent);
     }
 }

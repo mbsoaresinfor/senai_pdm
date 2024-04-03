@@ -13,15 +13,32 @@ import java.util.List;
 
 public class CadastroPetActivity extends AppCompatActivity {
 
-    List<Pet> listaPet = new ArrayList<Pet>();
+    List<Pet> listaPet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pet);
-        setTitle("Cadastro Pet");
+        setTitle(R.string.cadastrar_pet);
+
+        // pego a variavel que foi passada via bundle
+        try {
+            String nome = (String) getIntent().getSerializableExtra("nome");
+            int idade =(int)getIntent().getSerializableExtra("idade");
+            listaPet = (List<Pet>) getIntent().getSerializableExtra("lista");
+            Log.i("pet","foi passado o nome: " + nome);
+            Log.i("pet","foi passado a idade: " + idade);
+            Log.i("pet","conteudo da lista " + listaPet);
+
+        }catch(Exception e){
+            Log.e("pet","Ocorreu um erro ao buscar a variavel nome");
+        }
+
+
 
     }
+
+
 
     public void cadastrar(View view) {
         // buscando os campos da tela.

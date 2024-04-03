@@ -2,7 +2,9 @@ package com.example.petapp;
 
 import android.content.Intent;
 
-public class Pet {
+import java.io.Serializable;
+
+public class Pet implements Serializable {
 
     public String nome;
     public Integer idade;
