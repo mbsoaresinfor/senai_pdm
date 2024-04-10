@@ -1,5 +1,6 @@
 package com.example.petapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,8 +34,7 @@ public class DashBoardActivity extends AppCompatActivity {
         bundle.putSerializable("lista", (Serializable) listaPet);
 
         intent.putExtras(bundle);
-
-        startActivity(intent);
+        startActivityForResult(intent,Constantes.REQ_CADASTRO_ACTIVITY);
 
     }
 
@@ -49,7 +49,8 @@ public class DashBoardActivity extends AppCompatActivity {
         bundle.putSerializable("lista", (Serializable) listaPet);
         intent.putExtras(bundle);
 
-        startActivity(intent);
+        startActivityForResult(intent,Constantes.REQ_REMOVER_ACTIVITY);
+
     }
 
     public void listagemPet(View view) {
@@ -63,5 +64,19 @@ public class DashBoardActivity extends AppCompatActivity {
         intent.putExtras(bundle);
 
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Constantes.REQ_CADASTRO_ACTIVITY &&
+                    resultCode == Constantes.RET_CADASTRO_ACTIVITY_LISTA_PET){
+            listaPet = (List<Pet>) data.getSerializableExtra("lista");
+        }
+
+        if(requestCode == Constantes.REQ_REMOVER_ACTIVITY &&
+                resultCode == Constantes.RET_REMOVER_ACTIVITY_LISTA_PET){
+            listaPet = (List<Pet>) data.getSerializableExtra("lista");
+        }
     }
 }

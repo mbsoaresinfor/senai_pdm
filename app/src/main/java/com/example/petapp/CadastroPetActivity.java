@@ -2,12 +2,14 @@ package com.example.petapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,5 +74,14 @@ public class CadastroPetActivity extends AppCompatActivity {
         // limpeza dos campos da tela.
         nome.setText("");
         idade.setText("");
+
+        // retornando os dados para a activity pai
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("lista",(Serializable) listaPet);
+        intent.putExtras(bundle);
+        setResult(Constantes.RET_CADASTRO_ACTIVITY_LISTA_PET , intent);
+        finish();
+
     }
 }
