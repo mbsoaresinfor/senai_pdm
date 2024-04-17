@@ -11,4 +11,6 @@
     <string name="remover">Remover\n</string>
     <string name="remover_pet">Remover Pet</string>
     <string name="dashboard">Dashboard</string>
+    <string name="mensagem_sucesso">Parabéns, você acertou meu nome e idade !</string>
+    <string name="mensagem_error">Vc não acertou meu nome e idade.</string>
 </resources>
