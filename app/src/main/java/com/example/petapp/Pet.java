@@ -9,5 +9,9 @@ import java.io.Serializable;
     public String nome;
     public Integer idade;
 
+    @Override
+    public String toString(){
+        return "Nome: " + nome + ", Idade: " + idade;
+    }
 
 }

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListagemPetActivity">
+    tools:context=".ActivityA">
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="254dp"
+        android:layout_height="107dp"
+        android:onClick="abrirActivityB"
+        android:text="abrir activity B"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="160dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
