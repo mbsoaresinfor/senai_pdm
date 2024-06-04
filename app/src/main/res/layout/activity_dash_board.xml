@@ -33,5 +33,12 @@
             android:layout_height="84dp"
             android:onClick="listagemPet"
             android:text="@string/listagem_pet" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:onClick="abrirCalculadora"
+            android:text="Calculadora" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

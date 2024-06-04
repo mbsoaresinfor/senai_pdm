@@ -79,4 +79,9 @@ public class DashBoardActivity extends AppCompatActivity {
             listaPet = (List<Pet>) data.getSerializableExtra("lista");
         }
     }
+
+    public void abrirCalculadora(View view) {
+        Intent intent = new Intent(this,RetornoAulaActivity.class);
+        startActivity(intent);
+    }
 }

@@ -16,12 +16,14 @@ import java.util.List;
 public class CadastroPetActivity extends AppCompatActivity {
 
     List<Pet> listaPet;
+    BancoDadosPet bancoDadosPet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pet);
         setTitle(R.string.cadastrar_pet);
+        bancoDadosPet = new BancoDadosPet(this);
 
         // pego a variavel que foi passada via bundle
         try {
@@ -35,9 +37,6 @@ public class CadastroPetActivity extends AppCompatActivity {
         }catch(Exception e){
             Log.e("pet","Ocorreu um erro ao buscar a variavel nome");
         }
-
-
-
     }
 
 
@@ -61,7 +60,8 @@ public class CadastroPetActivity extends AppCompatActivity {
         Pet pet = new Pet();
         pet.nome = nomeTexto; // atribuindo os valores no objeto
         pet.idade = Integer.valueOf(idadeTexto);
-        listaPet.add(pet); // salvando na lista o pet.
+       // listaPet.add(pet); // salvando na lista o pet.
+        bancoDadosPet.adicionarPet(pet); // salvando no banco de dados.
 
         // escrevendo na console os valores salvo na lista
         for(Pet p : listaPet){
