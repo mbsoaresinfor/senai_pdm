@@ -11,12 +11,14 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CadastroPetActivity extends AppCompatActivity {
 
     List<Pet> listaPet;
     BancoDadosPet bancoDadosPet;
+    BancoDadosLog bancoDadosLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class CadastroPetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_pet);
         setTitle(R.string.cadastrar_pet);
         bancoDadosPet = new BancoDadosPet(this);
+        bancoDadosLog = new BancoDadosLog(this);
 
         // pego a variavel que foi passada via bundle
         try {
@@ -62,6 +65,12 @@ public class CadastroPetActivity extends AppCompatActivity {
         pet.idade = Integer.valueOf(idadeTexto);
        // listaPet.add(pet); // salvando na lista o pet.
         bancoDadosPet.adicionarPet(pet); // salvando no banco de dados.
+
+        // inserido log da operacao de adicionarPet no banco de dados.
+        com.example.petapp.Log meuLog = new com.example.petapp.Log();
+        meuLog.operacao = "CADASTRADO PET";
+        meuLog.dataOperacao = new Date().toString();
+        bancoDadosLog.inserirLog(meuLog);
 
         // escrevendo na console os valores salvo na lista
         for(Pet p : listaPet){
