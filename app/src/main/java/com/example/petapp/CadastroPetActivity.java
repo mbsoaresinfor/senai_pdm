@@ -10,23 +10,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class CadastroPetActivity extends AppCompatActivity {
 
     List<Pet> listaPet;
-    BancoDadosPet bancoDadosPet;
-    BancoDadosLog bancoDadosLog;
+    RepositorioPet repositorioPet;
+    RepositorioLog repositorioLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pet);
         setTitle(R.string.cadastrar_pet);
-        bancoDadosPet = new BancoDadosPet(this);
-        bancoDadosLog = new BancoDadosLog(this);
+        repositorioPet = new RepositorioPet(this);
+        repositorioLog = new RepositorioLog(this);
+
+
 
         // pego a variavel que foi passada via bundle
         try {
@@ -64,13 +65,13 @@ public class CadastroPetActivity extends AppCompatActivity {
         pet.nome = nomeTexto; // atribuindo os valores no objeto
         pet.idade = Integer.valueOf(idadeTexto);
        // listaPet.add(pet); // salvando na lista o pet.
-        bancoDadosPet.adicionarPet(pet); // salvando no banco de dados.
+        repositorioPet.adicionarPet(pet); // salvando no banco de dados.
 
         // inserido log da operacao de adicionarPet no banco de dados.
         com.example.petapp.Log meuLog = new com.example.petapp.Log();
         meuLog.operacao = "CADASTRADO PET";
         meuLog.dataOperacao = new Date().toString();
-        bancoDadosLog.inserirLog(meuLog);
+        repositorioLog.inserirLog(meuLog);
 
         // escrevendo na console os valores salvo na lista
         for(Pet p : listaPet){

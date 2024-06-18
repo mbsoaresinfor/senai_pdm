@@ -4,21 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private BancoDadosPet bancoDadosPet;
+    private RepositorioPet repositorioPet;
+    private RepositorioLog repositorioLog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTitle(R.string.login);
-        bancoDadosPet = new BancoDadosPet(this);
+        repositorioPet = new RepositorioPet(this);
+        repositorioLog = new RepositorioLog(this);
 
     }
 
@@ -40,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         Toast.makeText(this,"Sucesso no login",Toast.LENGTH_LONG).show();
+
+        for(Log log : repositorioLog.listarLog()){
+            android.util.Log.i("pet","operacao " + log.operacao);
+            android.util.Log.i("pet","data_operacao " + log.dataOperacao);
+        }
 
         // abrindo uma nova activity
         Intent intent = new Intent(this,DashBoardActivity.class);

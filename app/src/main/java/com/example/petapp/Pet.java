@@ -9,6 +9,8 @@ import java.io.Serializable;
     public String nome;
     public Integer idade;
 
+    public Integer id;
+
     @Override
     public String toString(){
         return "Nome: " + nome + ", Idade: " + idade;

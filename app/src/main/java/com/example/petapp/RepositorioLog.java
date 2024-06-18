@@ -1,15 +1,18 @@
 package com.example.petapp;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.petapp.Log;
 
 import androidx.annotation.Nullable;
 
-public class BancoDadosLog  extends SQLiteOpenHelper {
-    public BancoDadosLog(@Nullable Context context) {
-        super(context, "pet", null, 1);
+import java.util.ArrayList;
+import java.util.List;
+
+public class RepositorioLog extends SQLiteOpenHelper {
+    public RepositorioLog(@Nullable Context context) {
+        super(context, "log", null, 1);
     }
 
     @Override
@@ -29,5 +32,22 @@ public class BancoDadosLog  extends SQLiteOpenHelper {
         android.util.Log.i("pet","sql insert: " + sql);
         super.getWritableDatabase().execSQL(sql);
         android.util.Log.i("pet","executado sql insert");
+    }
+
+    public List<Log> listarLog(){
+        ArrayList<Log> lista = new ArrayList<>();
+        String sql = "select * from LOG";
+        Cursor cursor = getReadableDatabase().rawQuery(sql,null);
+        cursor.moveToFirst();
+        for(int i=0; i < cursor.getCount(); i++){
+            Log log = new Log();
+            log.id = cursor.getInt(0);
+            log.dataOperacao = cursor.getString(1);
+            log.operacao = cursor.getString(2);
+            lista.add(log);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return lista;
     }
 }
