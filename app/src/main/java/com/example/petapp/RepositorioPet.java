@@ -93,4 +93,9 @@ public class RepositorioPet extends SQLiteOpenHelper {
         getWritableDatabase().execSQL(sql);
     }
 
+    public void atualizarPet(Pet pet){
+        String sql = "update from PET set nome = '"+pet.nome + "', idade="+pet.idade +" where id = " + pet.id;
+        getWritableDatabase().execSQL(sql);
+    }
+
 }

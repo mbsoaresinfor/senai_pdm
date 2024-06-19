@@ -84,4 +84,9 @@ public class DashBoardActivity extends AppCompatActivity {
         Intent intent = new Intent(this,RetornoAulaActivity.class);
         startActivity(intent);
     }
+
+    public void atualizar(View view) {
+        Intent intent = new Intent(this,AtualizarActivity.class);
+        startActivity(intent);
+    }
 }

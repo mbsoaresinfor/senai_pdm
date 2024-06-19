@@ -40,5 +40,12 @@
             android:layout_height="83dp"
             android:onClick="abrirCalculadora"
             android:text="Calculadora" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:onClick="atualizar"
+            android:text="Atualizar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
