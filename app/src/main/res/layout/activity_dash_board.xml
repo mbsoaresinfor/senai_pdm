@@ -47,5 +47,12 @@
             android:layout_height="79dp"
             android:onClick="atualizar"
             android:text="Atualizar" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:onClick="abrirCadastroUsuario"
+            android:text="Cadastro/Listar Usuários" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

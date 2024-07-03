@@ -16,6 +16,9 @@ public class ListagemPetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_pet);
         setTitle(R.string.listagem_pet);
@@ -39,5 +42,10 @@ public class ListagemPetActivity extends AppCompatActivity {
             Log.i("pet", p.toString());
             Log.i("pet", "-----------------------" );
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 }

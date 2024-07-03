@@ -89,4 +89,9 @@ public class DashBoardActivity extends AppCompatActivity {
         Intent intent = new Intent(this,AtualizarActivity.class);
         startActivity(intent);
     }
+
+    public void abrirCadastroUsuario(View view) {
+        Intent intent = new Intent(this,CadastroUsuarioActivity.class);
+        startActivity(intent);
+    }
 }
